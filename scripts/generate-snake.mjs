@@ -194,6 +194,7 @@ function buildSnakeSvg(user, theme, isFixture, chainData) {
     .join('');
 
   let lastMonth = null;
+  let lastLabelCol = -99;
   const monthLabels = grid
     .map((week, col) => {
       const first = week.find(Boolean);
@@ -201,8 +202,12 @@ function buildSnakeSvg(user, theme, isFixture, chainData) {
       const month = new Date(`${first.date}T00:00:00Z`).getUTCMonth();
       if (month === lastMonth) return '';
       lastMonth = month;
-      // Skip a label that would collide with the right edge.
+      // A label needs ~3 columns of room. The first week of the graph is
+      // usually a partial month sitting right next to the next one, which
+      // would render as "AugSep"; skipping it costs nothing.
+      if (col - lastLabelCol < 3) return '';
       if (col > weeks - 3) return '';
+      lastLabelCol = col;
       return text(MONTHS[month], { x: xOf(col), y: 12, size: 9, className: 'axis' });
     })
     .join('');
