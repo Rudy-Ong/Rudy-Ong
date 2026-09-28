@@ -1,12 +1,14 @@
 <h1 align="center">Rudy Ong</h1>
 
 <p align="center">
-  Student and researcher in Japan, working on multimodal machine learning —<br>
-  audio-visual speech recognition and lip reading.
+  Student and researcher in Japan, working on Japanese speech processing —<br>
+  phone-level ASR, vowel devoicing, and computer-assisted pronunciation training.
 </p>
 
 <p align="center">
-  <a href="https://rudy-ong.github.io"><strong>Interactive lab →</strong></a>
+  <a href="https://huggingface.co/spaces/Rudy-Ong/ja_vowel_devoicing_detection"><strong>Try the devoicing detector →</strong></a>
+  ·
+  <a href="https://huggingface.co/Rudy-Ong">Hugging Face</a>
   ·
   <a href="https://www.linkedin.com/in/rudyong/">LinkedIn</a>
   ·
@@ -15,17 +17,29 @@
 
 ---
 
-### 🫦 Try the lip-reading toy
+### 🔊 Vowel devoicing, detected from audio
 
-A mouth silently articulates a Japanese word. Can you tell which one it said?
+Japanese high vowels have a habit of going quiet. In 好き *suki* the /u/ sits between two
+voiceless consonants and loses its voicing; in です *desu* the final /u/ does the same.
+Native speakers do this without noticing. Learners often don't do it at all — and a
+recogniser has to account for a vowel that left almost no acoustic trace behind.
 
-That is exactly the task an audio-visual speech recognition model faces when the audio
-channel is unusable — and it is much harder than it sounds. The
-**[interactive lab](https://rudy-ong.github.io)** lets you try it yourself, explore how
-each vowel reshapes the mouth, and watch an audio-only model fall apart under noise while
-the visual stream holds steady.
+**[Japanese Phone ASR — Vowel Devoicing](https://huggingface.co/spaces/Rudy-Ong/ja_vowel_devoicing_detection)**
+takes audio and marks, phone by phone, where devoicing actually occurred.
 
-<!-- Once the site is live, consider dropping a short screen-recording GIF here. -->
+| Context | Example | Typically |
+|---|---|---|
+| /i/ or /u/ between two voiceless consonants | 好き *suki*, した *shita* | devoiced |
+| High vowel word-final after a voiceless consonant | です *desu*, ます *masu* | devoiced |
+| Vowel carrying the pitch accent | varies | more likely to keep voicing |
+| Kansai and western dialects | — | devoice far less than Tokyo speech |
+
+The interesting part is that devoicing is *mostly* predictable from context and then isn't:
+it shifts with speaker, dialect, speech rate and accent placement. The gap between where the
+rules say a vowel should devoice and where it actually does is what the detector is pointed at.
+
+<!-- Sharpen this to your actual research question — I kept it to what's safely
+     established in the literature rather than guessing at your findings. -->
 
 ---
 
@@ -41,19 +55,19 @@ side of my research interests.
 
 ### 🔬 Researching
 
-**[usr2_avsr_lip_reading](https://github.com/Rudy-Ong/usr2_avsr_lip_reading)** · Python
-Built on [ahaliassos/usr2](https://github.com/ahaliassos/usr2). I am comparing three input
-conditions on the same downstream ASR task:
+**[ja_devoicing_vowel_phone3_r3](https://huggingface.co/Rudy-Ong/ja_devoicing_vowel_phone3_r3)**
+· the phone-level model behind the Space above.
 
-| Input | What the model gets | Where it wins |
-|---|---|---|
-| **Audio only** | Waveform, no video | Clean conditions, low latency |
-| **Video only** | Lips moving, no sound | Loud rooms, privacy, damaged audio |
-| **Audio-visual** | Both, fused | Degraded audio — the visual stream fills the gaps |
+<!-- survey_ja_museika is left out on purpose: that Space is currently paused, so the
+     link would land visitors on "This Space has been paused". Restart it and add:
+     **[survey_ja_museika](https://huggingface.co/spaces/Rudy-Ong/survey_ja_museika)**
+     · <one line on what it actually does — I did not want to guess from the name>. -->
 
-The question that interests me is not which one is best overall, but *where the crossover
-sits*: how much noise the audio channel has to take before watching the mouth becomes the
-better bet.
+Broadly: phone-level ASR for Japanese, and what it takes to make a recogniser agree with a
+phonetician about a vowel that is barely there. The pronunciation-training angle follows from
+the same question — you cannot give a learner feedback on devoicing you cannot reliably detect.
+
+<!-- Add papers, datasets or writeups here as they land. -->
 
 ---
 
@@ -127,9 +141,9 @@ whole daily build has zero npm dependencies.
 
 <br>
 
-**Research** · PyTorch · multimodal fusion · ASR / AVSR · lip reading
+**Research** · PyTorch · ASR · Japanese phonetics · phone-level modelling · CAPT
 
-**Building** · Python · JavaScript · Node · Git / GitHub Actions
+**Building** · Python · JavaScript · Node · Gradio · Git / GitHub Actions
 
 <!-- Trim or extend this to what you actually reach for. -->
 
