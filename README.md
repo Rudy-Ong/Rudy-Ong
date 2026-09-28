@@ -34,12 +34,10 @@ takes audio and marks, phone by phone, where devoicing actually occurred.
 | Vowel carrying the pitch accent | varies | more likely to keep voicing |
 | Kansai and western dialects | — | devoice far less than Tokyo speech |
 
-The interesting part is that devoicing is *mostly* predictable from context and then isn't:
-it shifts with speaker, dialect, speech rate and accent placement. The gap between where the
-rules say a vowel should devoice and where it actually does is what the detector is pointed at.
-
-<!-- Sharpen this to your actual research question — I kept it to what's safely
-     established in the literature rather than guessing at your findings. -->
+Devoicing is *mostly* predictable from context and then isn't: it shifts with speaker,
+dialect, speech rate and accent placement. So rather than applying rules after the fact, the
+model marks it during recognition — devoiced high vowels are upper-cased in the transcript
+(`s U k i`), which makes transcription and devoicing detection a single pass instead of two.
 
 ---
 
@@ -55,17 +53,28 @@ side of my research interests.
 
 ### 🔬 Researching
 
+**[ASR_JA_Vowel_Devoicing](https://github.com/Rudy-Ong/ASR_JA_Vowel_Devoicing)** · Python
+Conformer encoder / Transformer decoder seq2seq, trained on JSUT basic5000 with
+`phone_level3` transcripts. Training, inference, evaluation and a Gradio demo.
+
+The best configuration reaches **2.65% PER** with **92.6% devoicing F1** on the held-out
+split. The result I find most interesting is the trade-off: weighting the devoicing loss
+more heavily pushes recall to 95.0% and detection accuracy to 96.2%, but costs both
+precision and overall phone error rate. Catching every devoiced vowel and transcribing
+cleanly pull in opposite directions.
+[Full results table →](https://github.com/Rudy-Ong/ASR_JA_Vowel_Devoicing/blob/main/results.md)
+
 **[ja_devoicing_vowel_phone3_r3](https://huggingface.co/Rudy-Ong/ja_devoicing_vowel_phone3_r3)**
-· the phone-level model behind the Space above.
+· the trained checkpoint, running live in
+[the Space](https://huggingface.co/spaces/Rudy-Ong/ja_vowel_devoicing_detection).
+
+The pronunciation-training angle follows from the same question — you cannot give a learner
+feedback on devoicing you cannot reliably detect.
 
 <!-- survey_ja_museika is left out on purpose: that Space is currently paused, so the
      link would land visitors on "This Space has been paused". Restart it and add:
      **[survey_ja_museika](https://huggingface.co/spaces/Rudy-Ong/survey_ja_museika)**
      · <one line on what it actually does — I did not want to guess from the name>. -->
-
-Broadly: phone-level ASR for Japanese, and what it takes to make a recogniser agree with a
-phonetician about a vowel that is barely there. The pronunciation-training angle follows from
-the same question — you cannot give a learner feedback on devoicing you cannot reliably detect.
 
 <!-- Add papers, datasets or writeups here as they land. -->
 
