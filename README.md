@@ -1,11 +1,8 @@
-<h1 align="center">Rudy Ong</h1>
-
-<p align="center">
-  Student and researcher in Japan, working on Japanese speech processing —<br>
-  phone-level ASR, vowel devoicing, and computer-assisted pronunciation training.
+<p align="left">
+  Study in Japan, working on Japanese speech processing phone-level ASR, vowel devoicing, and computer-assisted pronunciation training.
 </p>
 
-<p align="center">
+<p align="left">
   <a href="https://huggingface.co/spaces/Rudy-Ong/ja_vowel_devoicing_detection"><strong>Try the devoicing detector →</strong></a>
   ·
   <a href="https://huggingface.co/Rudy-Ong">Hugging Face</a>
