@@ -1,9 +1,9 @@
 <p align="left">
-  Study in Japan, working on Japanese speech processing phone-level ASR, vowel devoicing, and computer-assisted pronunciation training.
+  Study in Japan, working on Japanese speech processing phone-level ASR and language acquisition. Teaching Japanese for community.
 </p>
 
 <p align="left">
-  <a href="https://huggingface.co/spaces/Rudy-Ong/ja_vowel_devoicing_detection"><strong>Try the devoicing detector →</strong></a>
+  <a href="https://huggingface.co/spaces/Rudy-Ong/jp-vowel_devoicing"><strong>Try the devoicing detector →</strong></a>
   ·
   <a href="https://huggingface.co/Rudy-Ong">Hugging Face</a>
   ·
