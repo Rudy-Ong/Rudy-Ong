@@ -1,5 +1,5 @@
 <p align="left">
-  Study in Japan, working on Japanese speech processing phone-level ASR and language acquisition. Teaching Japanese for community.
+  Study in Japan, working on Japanese speech processing phone-level ASR and language acquisition. Teaching Japanese for fun.
 </p>
 
 <p align="left">
@@ -61,19 +61,11 @@ precision and overall phone error rate. Catching every devoiced vowel and transc
 cleanly pull in opposite directions.
 [Full results table →](https://github.com/Rudy-Ong/ASR_JA_Vowel_Devoicing/blob/main/results.md)
 
-**[ja_devoicing_vowel_phone3_r3](https://huggingface.co/Rudy-Ong/ja_devoicing_vowel_phone3_r3)**
-· the trained checkpoint, running live in
-[the Space](https://huggingface.co/spaces/Rudy-Ong/ja_vowel_devoicing_detection).
-
-The pronunciation-training angle follows from the same question — you cannot give a learner
-feedback on devoicing you cannot reliably detect.
-
-<!-- survey_ja_museika is left out on purpose: that Space is currently paused, so the
-     link would land visitors on "This Space has been paused". Restart it and add:
-     **[survey_ja_museika](https://huggingface.co/spaces/Rudy-Ong/survey_ja_museika)**
-     · <one line on what it actually does — I did not want to guess from the name>. -->
-
-<!-- Add papers, datasets or writeups here as they land. -->
+**[Audio-LM_detecting_vowel_devoicing](https://huggingface.co/spaces/Rudy-Ong/jp-vowel_devoicing)**
+Fine-tuning pretrain model Qwen2.5 Omni, trained on CSJ core corpus.
+Try the demo here, you can utter Japanese and test how model differentiate between voiced and devoiced vowel.
+Or just using example to quicktest model.
+[the Space](https://huggingface.co/spaces/Rudy-Ong/jp-vowel_devoicing)
 
 ---
 
