@@ -3,7 +3,7 @@
 </p>
 
 <p align="left">
-  <a href="https://huggingface.co/spaces/Rudy-Ong/jp-vowel_devoicing"><strong>Try the devoicing detector →</strong></a>
+  <a href="[https://rudy-ong.github.io/"><strong>Find my interest and works here!→</strong></a>
   ·
   <a href="https://huggingface.co/Rudy-Ong">Hugging Face</a>
   ·
