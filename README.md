@@ -3,8 +3,9 @@
 </p>
 
 <p align="left">
-  <a href="[https://rudy-ong.github.io/"><strong>Find my interest and works here!→</strong></a>
+  <a href="https://rudy-ong.github.io/"><strong>Find my interest and works here!→</strong></a>
   ·
+  or here
   <a href="https://huggingface.co/Rudy-Ong">Hugging Face</a>
   ·
   <a href="https://www.linkedin.com/in/rudyong/">LinkedIn</a>
